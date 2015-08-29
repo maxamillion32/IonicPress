@@ -1,0 +1,17 @@
+<div ng-controller="ComponentCtrl">
+	<div title='{{title}}' ng-controller="MapCtrl">
+	
+		<ion-content id="map" data-tap-disabled="true" scroll="false">
+			<div ng-show="mapReady">
+				<ion-footer-bar class="bar-dark">
+			      <a onclick="window.centerOnMe()" class="button button-icon icon ion-navigate"></a>
+			    </ion-footer-bar>
+			    <map on-create="mapCreated(map)" ng-style="setStyle"></map>
+			</div>
+			<div ng-hide="mapReady">
+				<p class="center no-data" >{{ 'no_map' | i18n }}</p>
+			</div>
+		</ion-content>
+		
+	</div>
+</div>

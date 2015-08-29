@@ -1,0 +1,22 @@
+<div ng-if="comments" class="comment-header">
+	<span>{{ 'comment_text' | i18n }}</span>
+	<!-- <span class="comment-button icon ion-chatbox"></span> -->
+</div>
+
+
+<div id="comments" ng-if="comments">
+	<ion-list class="list">
+		<ion-item ng-repeat="comment in comments track by $index" class="item item-avatar">
+			<img ng-if="comment.author.avatar" ng-src="{{comment.author.avatar}}" class="">
+			<h3 ng-bind-html="comment.author.name"></h3>
+
+			<p ng-bind-html="comment.content | striptags"></p>
+		</ion-item>
+	</ion-list>
+</div>
+<ion-infinite-scroll
+	ng-if="moreComments"
+	spinner="{{loader | spinnerFilter}}"
+	on-infinite="loadMoreComments()"
+	distance="5%">
+</ion-infinite-scroll>

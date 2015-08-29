@@ -1,0 +1,44 @@
+<div ng-controller="ComponentCtrl">
+	<div ng-show="!title">
+	    <div class="loader">
+			<ion-spinner icon="{{loader | spinnerFilter}}"></ion-spinner>
+	    </div>
+	</div>
+	
+	<div class="podcast" ng-show="title">
+	
+		<div class="padding">
+		
+				<button class="play-button" ng-click="play2Audio(file)"><i class="icon ion-arrow-right-b"></i> Play</button>
+		
+				<div class="podcast-featured-image" ng-if="featured">
+					<img src="{{featured}}">
+				</div>
+		
+		        <div class="podcast-content">
+		
+		            <div ng-bind-html="data.do_api_action.podcast.above_title || ' ' | allow_html" compile-template></div>
+		
+		            <div class="post-title">
+		                <h4 ng-bind-html="title"></h4>
+		            </div>
+		            
+		            <div ng-bind-html="data.do_api_action.podcast.below_title || ' ' | allow_html" compile-template></div>
+		
+		            <div class="podcast-meta">
+		
+		                <h4 ng-if="data.do_api_action.podcast.meta">{{data.do_api_action.podcast.meta}}</h4>
+		
+		            </div>
+		
+		            <div ng-bind-html="data.do_api_action.podcast.above_content || ' ' | allow_html" compile-template></div>
+		
+		            <div class="post-content" ng-bind-html="content | allow_html" compile-template></div>
+		
+		            <div ng-bind-html="data.do_api_action.podcast.below_content || ' ' | allow_html" compile-template></div>
+		
+		        </div>
+		</div>
+	
+	</div>
+</div>
