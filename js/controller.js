@@ -20,12 +20,11 @@ ionicpress.controller('DetailCtrl', function( $sce, $scope, $rootScope, $statePa
 		
 		$scope.detailtemplate = 'lib/ionicpress/templates/components/'+ $rootScope.detail +'.html';
 		
-		angular.forEach( $rootScope.posts, function(value, key) {	
-			if( postID == $rootScope.posts[key]['ID'] ) {
-				console.log($rootScope.posts[key]['title']);
+		angular.forEach( $rootScope.posts, function(value, key) {
 			
-				$scope.title = $rootScope.posts[key]['title'];
-				$scope.content = $rootScope.posts[key]['content'];
+			if( postID == $rootScope.posts[key]['id'] ) {	
+				$scope.title = $rootScope.posts[key]['title']['rendered'];
+				$scope.content = $rootScope.posts[key]['content']['rendered'];
 			}
 		});
 		
