@@ -1,5 +1,4 @@
-
-reactor.filter('formatDate', function(){
+ionicpress.filter('formatDate', function(){
     return function( date ) {
     	stringDate = new Date( date );
         return stringDate.toDateString();
@@ -7,7 +6,7 @@ reactor.filter('formatDate', function(){
 });
 
 
-reactor.filter('trusted', function ($sce, $sanitize) {
+ionicpress.filter('trusted', function ($sce, $sanitize) {
     return function (text) {
         var regex = /href="([\S]+)"/g;
         var newString = $sanitize(text).replace(regex, "onClick=\"window.open('$1', '_blank', 'location=no,enableViewportScale=yes')\"");
@@ -15,7 +14,7 @@ reactor.filter('trusted', function ($sce, $sanitize) {
     }
 });
 
-reactor.filter('allow_html', function ($sce) {
+ionicpress.filter('allow_html', function ($sce) {
     return function (text) {
 
 		var htmlObject = document.createElement('div');
@@ -61,13 +60,13 @@ reactor.filter('allow_html', function ($sce) {
 });
 
 
-reactor.filter('trust', function($sce){
+ionicpress.filter('trust', function($sce){
     return function(text) {
         return $sce.trustAsHtml(text);
     };
 });
 
-reactor.filter('striptags', function($sce, $sanitize){
+ionicpress.filter('striptags', function($sce, $sanitize){
     return function(text) {
     	var StrippedString = $sanitize(text).replace(/<\/?[^>]+(>|$)/g, "");
         return $sce.trustAsHtml(StrippedString);
@@ -75,7 +74,7 @@ reactor.filter('striptags', function($sce, $sanitize){
 });
 
 
-reactor.filter('hasFeatured', function() {
+ionicpress.filter('hasFeatured', function() {
 
    return function( items ) {
 
@@ -92,7 +91,7 @@ reactor.filter('hasFeatured', function() {
 });
 
 
-reactor.filter('i18n', function($sce){
+ionicpress.filter('i18n', function($sce){
 		function filterFn(text) {
 			var rText = ( typeof REACTOR_TEXT !== 'undefined' ) ? REACTOR_TEXT[text] : '';
 			return $sce.trustAsHtml(rText);
@@ -104,7 +103,7 @@ reactor.filter('i18n', function($sce){
 	    return filterFn;
 });
 
-reactor.filter('spinnerFilter', function() {
+ionicpress.filter('spinnerFilter', function() {
 
 	var spinner = ( AppConfig['meta']['design']['spinner'] ) ? AppConfig['meta']['design']['spinner'] : '';
 

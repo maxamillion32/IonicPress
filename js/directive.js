@@ -10,9 +10,11 @@ ionicpress.directive('ionicpress', function( $state, $stateParams, $rootScope, $
 			   $scope.template = 'lib/ionicpress/templates/components/'+ templateName +'.html';
 			});
 			
-			$attrs.$observe('id',function( id ){
+			$attrs.$observe('id',function( id ){});
+			
+			$attrs.$observe('detail',function( detail ){
 									
-			    
+			    $scope.detail = detail;
 			});
 			
 			$attrs.$observe('api',function( api ){
