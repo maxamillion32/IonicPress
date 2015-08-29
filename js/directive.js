@@ -20,7 +20,7 @@ ionicpress.directive('ionicpress', function( $state, $stateParams, $rootScope, $
 			$attrs.$observe('api',function( api ){
 			   
 			   var apiParams = {};
-			   var apiUrl = api + '/wp-json/' + $attrs.endpoint + '?_jsonp=JSON_CALLBACK';
+			   var apiUrl = api + '/wp-json/wp/v2/' + $attrs.endpoint + '?_jsonp=JSON_CALLBACK';
 			   
 			   	var params = {
 				   	api: apiUrl,
