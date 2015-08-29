@@ -1,0 +1,3 @@
+<div ng-controller="audioButtonCtrl as controller">
+	<button ng-click="playAudio('{{controller.config.url}}')" class="button button-reactor" ng-class="controller.config.playButtonClass" ng-bind-html="controller.config.playButtonTitle"></button>
+</div>

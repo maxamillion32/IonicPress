@@ -1,0 +1,24 @@
+<div ng-show="title" class="padding">
+
+	<div ng-bind-html="data.do_api_action.default.above_title || ' ' | allow_html" compile-template></div>
+
+	<div class="post-title"><h4 ng-bind-html="title"></h4></div>
+
+	<div ng-bind-html="data.do_api_action.default.below_title || ' ' | allow_html" compile-template></div>
+
+	<div class="post-category">
+		<span ng-repeat="term in post.terms.category" ng-bind-html="term.name | allow_html"></span>
+	</div>
+
+	<img ng-show="featured" class="full-image post-featured" ng-src="{{featured}}">
+
+	<div ng-bind-html="data.do_api_action.default.above_content || ' ' | allow_html" compile-template></div>
+
+	<div class="post-content" ng-bind-html="content | allow_html" compile-template></div>
+
+	<div ng-bind-html="data.do_api_action.default.below_content || ' ' | allow_html"compile-template></div>
+</div>
+
+<div ng-if="showComments" ng-controller="CommentsCtrl">
+	<div ng-if="data.comment_status == 'open'" ng-include="getComments()"></div>
+</div>

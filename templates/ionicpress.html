@@ -1,0 +1,26 @@
+<div ng-controller="ComponentCtrl">
+
+	<ion-refresher
+		ng-show="spinner"
+		on-refresh="doRefresh()"
+		pulling-icon="ion-arrow-down-c">
+	</ion-refresher>
+	
+	<div ng-show="!loading">
+		<div class="loader">
+			<ion-spinner></ion-spinner>
+		</div>
+	</div>
+	
+	<div class="center no-data" ng-if="noData" ng-bind-html="noData"></div>
+	
+	<div ng-include="template"></div>
+	
+	<ion-infinite-scroll
+		ng-if="moreItems"
+		on-infinite="loadMoreItems()"
+		spinner=""
+		distance="5%">
+	</ion-infinite-scroll>
+	
+</div>

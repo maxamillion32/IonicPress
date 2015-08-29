@@ -1,0 +1,66 @@
+<div ng-show="!title">
+    <div class="loader">
+		<ion-spinner icon="{{loader | spinnerFilter}}"></ion-spinner>
+    </div>
+</div>
+
+<div class="product" ng-show="title">
+
+    <ion-slide-box on-slide-changed="slideHasChanged($index)" show-pager="true" class="product-slider">
+        <ion-slide ng-if="featured">
+            <div class="box">
+                <img src="{{featured}}">
+            </div>
+        </ion-slide>
+        <ion-slide ng-if="data.meta_fields.woo.image_gallery.images[0].url" ng-repeat="image in data.meta_fields.woo.image_gallery.images">
+            <div class="box" ng-style="{'background-image':'url({{image.url}})'}">
+            </div>
+        </ion-slide>
+    </ion-slide-box>
+
+    <div class="padding">
+
+        <div class="product-content">
+
+            <div ng-bind-html="data.do_api_action.product.above_title || ' ' | allow_html" compile-template></div>
+
+            <div class="post-title">
+                <h3 ng-bind-html="title"></h3>
+            </div>
+
+            <div ng-bind-html="data.do_api_action.product.below_title || ' ' | allow_html" compile-template></div>
+
+            <div class="product-meta">
+
+                <h4 class="product-price" ng-if="data.meta_fields.woo.sale_price">
+                	<s><span ng-bind-html=" data.meta_fields.woo.currency_symbol"></span> {{data.meta_fields.woo.price}}</s>
+                		{{ 'woo_sale' | i18n }}
+                	<span ng-bind-html="data.meta_fields.woo.currency_symbol"></span>
+                		{{data.meta_fields.woo.sale_price}}
+                </h4>
+
+                <h4 class="product-price" ng-if="!data.meta_fields.woo.sale_price">
+                	<div ng-if="data.meta_fields.woo.price">
+	                		<span ng-bind-html="data.meta_fields.woo.currency_symbol"></span>
+	                		{{data.meta_fields.woo.price}}
+	                </div>
+                </h4>
+
+
+                <!-- <button class="button button-positive" ng-click="openBrowser(link)">{{ 'purchase_button' | i18n }}</button> -->
+            </div>
+
+            <div ng-bind-html="data.do_api_action.product.above_content || ' ' | allow_html" compile-template></div>
+
+            <div class="post-content" ng-bind-html="content | allow_html" compile-template></div>
+
+            <div ng-bind-html="data.do_api_action.product.below_content || ' ' | allow_html" compile-template></div>
+
+			<div class="product-iframe">
+            	<iframe src="{{product_iframe}}" style="overflow:hidden;height:100%;width:100%" height="100%" width="100%"></iframe>
+			</div>
+
+        </div>
+    </div>
+
+</div>

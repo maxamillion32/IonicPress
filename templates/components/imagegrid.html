@@ -1,0 +1,11 @@
+<div ng-controller="ComponentCtrl">
+	<div ng-show="!images">
+		<div class="loader">
+			<ion-spinner icon="{{loader | spinnerFilter}}"></ion-spinner>
+		</div>
+	</div>
+	<div class="center no-data" ng-if="noData">{{noData}}</div>
+	<div ng-repeat="image in images" class="grid-list-item">
+		<img ng-click="openImageModal('{{image.guid}}')" ng-src="{{image.meta.sizes.thumbnail.url}}">
+	</div>
+</div>

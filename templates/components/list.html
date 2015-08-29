@@ -1,0 +1,13 @@
+<ion-list class="list-list">
+	<ion-item ng-repeat="post in posts" class="list-item" href="#/app/ionicpress/{{post.ID}}">
+
+		<h2 class="post-excerpt" ng-bind-html="post.title"></h2>
+
+		<div class="post-category">
+			<span ng-repeat="term in post.terms.category" ng-bind-html="term.name "></span>
+		</div>
+
+		<p class="post-excerpt" ng-bind-html="post.excerpt"></p>
+
+	</ion-item>
+</ion-list>

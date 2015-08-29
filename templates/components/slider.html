@@ -1,0 +1,12 @@
+<ion-slide-box on-slide-changed="slideHasChanged($index)">
+	<ion-slide ng-repeat="slide in slides | limitTo:3">
+		<a  href="#/app/{{detail}}/{{slide.ID}}">
+			<div class="box"
+                 ng-style="{'background-image':'url({{slide.featured_image.attachment_meta.sizes.medium.url}})'}">
+				<div class="overlay">
+					<h4 class="slide-title truncate" ng-bind-html="slide.title"></h4>
+				</div>
+			</div>
+		</a>
+	</ion-slide>
+</ion-slide-box>

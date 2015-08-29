@@ -1,0 +1,18 @@
+<div ng-controller="ComponentCtrl">
+	<div class="padding text">
+		<div ng-if="detail" class="search-form">
+	
+			<div class="row">
+				<div class="col">
+					<input id="search" class="search-bar" type="search" name="search" placeholder="{{placeholder}}" ng-model="searchData.value">
+	
+					<buttton class="button button-reactor" ng-click="openSearch(searchData.value); search(searchData.value)">Search</buttton>
+				<div>
+			</div>
+	
+		</div>
+	
+	
+	</div>
+	<div class="search-text" ng-bind-html="html || ' ' | allow_html" compile-template></div>
+</div>

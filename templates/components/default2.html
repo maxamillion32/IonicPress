@@ -1,0 +1,36 @@
+<div ng-show="!title">
+	<div class="loader">
+		<ion-spinner icon="{{loader | spinnerFilter}}"></ion-spinner>
+	</div>
+</div>
+
+<div class="default2-template" ng-show="title">
+
+	<div ng-bind-html="data.do_api_action.default.above_title || ' ' | allow_html" compile-template></div>
+	
+	<div class="detail-featured-image-wrapper">
+		<img ng-show="featured" class="full-image post-featured" ng-src="{{featured}}">
+	</div>
+
+	<div class="title-block">
+
+		<div class="post-title"><h4 ng-bind-html="title"></h4></div>
+
+		<div class="post-category">
+			<span ng-repeat="term in post.terms.category" ng-bind-html="term.name | allow_html"></span>
+		</div>
+
+	</div>
+
+	<div ng-bind-html="data.do_api_action.default.below_title || ' ' | allow_html" compile-template></div>
+
+	<div ng-bind-html="data.do_api_action.default.above_content || ' ' | allow_html" compile-template></div>
+
+	<div class="post-content padding" ng-bind-html="content | allow_html" compile-template></div>
+
+	<div ng-bind-html="data.do_api_action.default.below_content || ' ' | allow_html"compile-template></div>
+</div>
+
+<div ng-if="showComments" ng-controller="CommentsCtrl">
+	<div ng-if="data.comment_status == 'open'" ng-include="getComments()"></div>
+</div>

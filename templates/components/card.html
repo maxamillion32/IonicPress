@@ -1,0 +1,46 @@
+<div ng-show="!title">
+	<div class="loader">
+		<ion-spinner icon="{{loader | spinnerFilter}}"></ion-spinner>
+	</div>
+</div>
+<div ng-show="title" class="card-view">
+
+	<div ng-bind-html="data.do_api_action.card.above_card || ' ' | allow_html" compile-template></div>
+
+	<div class="list card">
+
+        <div class="item">
+
+            <div ng-bind-html="data.do_api_action.card.above_title || ' ' | allow_html" compile-template></div>
+
+            <h2 class="post-title" ng-bind-html="title"></h2>
+
+            <div ng-bind-html="data.do_api_action.card.below_title || ' ' | allow_html" compile-template></div>
+
+            <p class="post-date" ng-bind-html="date | formatDate"></p>
+
+        </div>
+
+		<div class="item item-body">
+			
+			<div class="featured-image-wrapper">
+				<img class="full-image" ng-src="{{featured}}">
+			</div>
+
+            <div ng-bind-html="data.do_api_action.card.above_content || ' ' | allow_html" compile-template></div>
+
+			<p class="post-content" ng-bind-html="content | allow_html" compile-template></p>
+
+            <div ng-bind-html="data.do_api_action.card.below_content || ' ' | allow_html" compile-template></div>
+
+		</div>
+
+		<div ng-if="showComments" ng-controller="CommentsCtrl">
+			<div ng-if="data.comment_status == 'open'" ng-include="getComments()"></div>
+		</div>
+
+	</div>
+
+	<div ng-bind-html="data.do_api_action.card.below_card || ' ' | allow_html" compile-template></div>
+
+</div>

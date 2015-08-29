@@ -1,0 +1,10 @@
+<div ng-controller="ComponentCtrl">
+	<div class="padding text">
+		<div ng-show="!html">
+			<div class="loader">
+				<ion-spinner icon="{{loader | spinnerFilter}}"></ion-spinner>
+			</div>
+		</div>
+		<div class="post-content" ng-bind-html="html || ' ' | allow_html" compile-template></div>
+	</div>
+</div>
