@@ -1,3 +1,17 @@
+/*!
+ * Copyright 2015 TapTapPress.
+ * http://taptappress.com/
+ *
+ * IonicPress, v1.0
+ * A WordPress add on for Ionic framework.
+ * http://ionicframework.com/
+ *
+ * By @modemlooper
+ *
+ * Licensed under the MIT license.
+ *
+ */
+
 var ionicpress = angular.module('ionicpress', [])
 
 .controller('IonicPressCtrl', function( $scope, $timeout, runtimeStates, $state, $ionicHistory ) {
