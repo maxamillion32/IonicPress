@@ -4,8 +4,6 @@ ionicpress.directive('ionicpress', function( $state, $stateParams, $rootScope, $
 		restrict: 'E',
 		link: function ( $scope, $element, $attrs ) {
 		
-
-			
 			$attrs.$observe('template',function( templateName ){
 			   $scope.template = 'lib/ionicpress/templates/components/'+ templateName +'.html';
 			});
@@ -13,7 +11,6 @@ ionicpress.directive('ionicpress', function( $state, $stateParams, $rootScope, $
 			$attrs.$observe('id',function( id ){});
 			
 			$attrs.$observe('detail',function( detail ){
-									
 			    $scope.detail = detail;
 			});
 			
