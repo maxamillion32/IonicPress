@@ -1,5 +1,5 @@
 <ion-list class="list-list">
-	<ion-item ng-repeat="post in posts" class="list-item" href="#/app/ionicpress/{{post.id}}">
+	<ion-item ng-repeat="post in posts" class="list-item" href="#/{{statePrefix}}/ionicpress/{{post.id}}">
 
 		<h2 class="post-excerpt" ng-bind-html="post.title.rendered"></h2>
 
