@@ -14,7 +14,7 @@
 
 var ionicpress = angular.module('ionicpress', [])
 
-.controller('IonicPressCtrl', function( $scope, $timeout, runtimeStates, $state, $ionicHistory ) {
+.controller('IonicPressCtrl', function( $scope, $timeout, runtimeStates, $state, $ionicHistory, $rootScope, $ionicHistory ) {
 
 	var view = Object.keys($state.current.views)[0];
 	var split = $state.current.name.split('.');
@@ -27,16 +27,20 @@ var ionicpress = angular.module('ionicpress', [])
 	data['views'][view] = { templateUrl: 'lib/ionicpress/templates/detail.html' };
 
   	// add a route dynamically for our detail view
-	runtimeStates.addState( split[0] + '.detail', data );
+  	runtimeStates.addState( $state.current.name + '-detail', data );
 
+  	console.log( $state.get() );
 });
 
 
 // adds extra routes to the app at runtime
-ionicpress.provider('runtimeStates', function runtimeStates($stateProvider ) {
+ionicpress.provider('runtimeStates', function runtimeStates( $stateProvider, $urlRouterProvider  ) {
 
   this.$get = function($q, $timeout, $state) {
     return {
+      getStates: function() {
+        return $stateProvider;
+      },
       addState: function(name, state) {
         $stateProvider.state(name, state);
       }
