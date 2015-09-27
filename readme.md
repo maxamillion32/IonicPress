@@ -19,3 +19,14 @@ After adding the ionicpress.js file you can add routes for WordPress pages in yo
      blog
     </ion-item>
 
+Ok, now that we got are menu item linking to a route not we need to add our route/state to the $stateProvider in www/js/app.js
+
+    .state('app.blog', {
+        url: '/blog',
+        views: {
+          'menuContent': {
+            templateUrl: 'templates/blog.html',
+            controller: 'IonicPressCtrl'
+          }
+        }
+    })
