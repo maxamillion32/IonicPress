@@ -30,3 +30,12 @@ Ok, now that we got are menu item linking to a route not we need to add our rout
           }
         }
     })
+
+Now create a template for your WordPress page. www/templates/blog.html and in the template we will add a directive for ionicpress.
+
+    <ion-view view-title="Blog">
+      <ion-content>
+  	    <ionicpress api="http://bptrunk.dev" endpoint="posts" template="list" detail="default"></ionicpress>
+      </ion-content>
+    </ion-view>
+
