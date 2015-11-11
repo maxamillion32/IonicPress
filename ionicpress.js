@@ -66,3 +66,7 @@ function loadjscssfile(filename, filetype){
         document.getElementsByTagName("head")[0].appendChild(fileref)
 }
 loadjscssfile("lib/ionicpress/css/ionicpress.css", "css");
+loadjscssfile("lib/ionicpress/js/controller.js", "js");
+loadjscssfile("lib/ionicpress/js/directive.js", "js");
+loadjscssfile("lib/ionicpress/js/factory.js", "js");
+loadjscssfile("lib/ionicpress/js/filter.js", "js");
