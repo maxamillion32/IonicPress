@@ -19,7 +19,7 @@ After adding the ionicpress.js file you can add routes for WordPress pages in yo
      blog
     </ion-item>
     
-Now add ionicpress as a dependencty to the module in app.js
+Now add ionicpress as a dependency to the module in app.js
 
     angular.module('starter', ['ionic', 'ionicpress', 'starter.controllers'])
 
