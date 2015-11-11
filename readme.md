@@ -18,6 +18,10 @@ After adding the ionicpress.js file you can add routes for WordPress pages in yo
     <ion-item menu-close href="#/app/blog">
      blog
     </ion-item>
+    
+Now add ionicpress as a dependencty to the module in app.js
+
+    angular.module('starter', ['ionic', 'ionicpress', 'starter.controllers'])
 
 Ok, now that we got a menu item linking to a route not we need to add our route/state to the $stateProvider in www/js/app.js
 
