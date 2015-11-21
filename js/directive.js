@@ -3,35 +3,41 @@ ionicpress.directive('ionicpress', function( $state, $stateParams, $rootScope, $
 	return {
 		restrict: 'E',
 		link: function ( $scope, $element, $attrs ) {
-		
+
 			$attrs.$observe('template',function( templateName ){
 			   $scope.template = 'lib/ionicpress/templates/components/'+ templateName +'.html';
 			});
-			
-			$attrs.$observe('id',function( id ){});
-			
+
+			$attrs.$observe('id',function( id ){
+			});
+
 			$attrs.$observe('detail',function( detail ){
 			    $scope.detail = detail;
 			});
-			
+
+			$attrs.$observe('endpoint',function( endpoint ){
+			    $scope.endpoint = endpoint;
+			});
+
 			$attrs.$observe('api',function( api ){
-			   
+
+				$scope.api = api;
+
 			   var apiParams = {};
 			   var apiUrl = api + '/wp-json/wp/v2/' + $attrs.endpoint + '?_jsonp=JSON_CALLBACK';
-			   
+
 			   	var params = {
 				   	api: apiUrl,
 				   	params: apiParams
 			   	}
-				
+
 				$rootScope.$broadcast('post-data-fetch', params );
-							   
+
 			});
-			
-		
+
+
 		},
 		templateUrl: 'lib/ionicpress/templates/ionicpress.html'
 		//template: '<div ng-include="template"></div>'
 	};
 });
-
